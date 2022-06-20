@@ -1,4 +1,4 @@
-## Features
+## Features 🚀
 
 1. Login
 
