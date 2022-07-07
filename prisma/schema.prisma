@@ -1,0 +1,51 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+enum RoleType {
+  user
+  admin
+}
+model User {
+  user_id      String     @id @default(auto()) @map("_id")@db.ObjectId
+  password String
+  user_name    String @unique
+  email String
+  role    RoleType @default(user)
+  profile  Profile?
+  admin   Admin?   @relation(fields: [admin_id ], references: [admin_id ])
+  admin_id String? @db.ObjectId
+}
+
+model Profile {
+  profile_id     String    @id @default(auto())@map("_id") @db.ObjectId
+  user  User   @relation(fields: [userId ], references: [user_id ])
+  userId  String  @unique
+}
+model Stock {
+  stock_id     String    @id @default(auto())@map("_id") @db.ObjectId
+  name String 
+  open String
+  height String
+  low String
+  volume String
+  admin   Admin?   @relation(fields: [admin_id ], references: [admin_id ])
+  admin_id  String ?
+}
+type stock {
+  stock_id     String    @map("_id") @db.ObjectId
+  name String 
+  height String
+   low String
+  volume String
+}
+model Admin{
+    admin_id     String    @id @default(auto())@map("_id") @db.ObjectId
+    name String
+    stock Stock[]
+    user User[]
+}
