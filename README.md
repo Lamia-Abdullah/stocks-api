@@ -24,3 +24,7 @@
 3. Web Server: `Fastify`
 4. ORM: `Prisma`
 5. DB: `MongoDB`
+
+## ER diagram: 
+
+https://www.figma.com/file/ZlbN3bGoDqVhOxy1o0N8W8/Untitled?node-id=0%3A1
