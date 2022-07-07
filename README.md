@@ -17,3 +17,10 @@
 2. SignIn
 3. View all users
 4. delete user
+
+## Stack
+1. Runtime Environment: `Node.js`
+2. Language: `TypeScript`
+3. Web Server: `Fastify`
+4. ORM: `Prisma`
+5. DB: `MongoDB`
